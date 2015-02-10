@@ -1,0 +1,142 @@
+* Barcode = NA				
+* Block Type = 384-Well Block				
+* Calibration Background is expired  = No				
+* Calibration Background performed on  = 09-15-2014 15:40:03 EDT				
+* Calibration FAM is expired  = No				
+* Calibration FAM performed on  = 09-15-2014 16:32:51 EDT				
+* Calibration NED is expired  = No				
+* Calibration NED performed on  = 09-15-2014 16:41:40 EDT				
+* Calibration ROI is expired  = No				
+* Calibration ROI performed on  = 09-15-2014 15:31:44 EDT				
+* Calibration ROX is expired  = No				
+* Calibration ROX performed on  = 09-15-2014 15:59:17 EDT				
+* Calibration SYBR is expired  = No				
+* Calibration SYBR performed on  = 09-15-2014 16:59:48 EDT				
+* Calibration TAMRA is expired  = No				
+* Calibration TAMRA performed on  = 09-15-2014 16:51:08 EDT				
+* Calibration Uniformity is expired  = No				
+* Calibration Uniformity performed on  = 09-15-2014 15:49:36 EDT				
+* Calibration VIC is expired  = No				
+* Calibration VIC performed on  = 09-15-2014 16:09:49 EDT				
+* Chemistry = TAQMAN				
+* Comment = NA				
+* Date Created = 02-09-2015 15:15:01 EST				
+* Experiment File Name = C:\Users\Public\HI TESTING\HI 384 Data\HHT 2294\HI Plate 384_001_S1_020615_2.eds				
+* Experiment Name = HI Plate 384_001_S1_020615_2				
+* Experiment Run End Time = 02-07-2015 03:01:30 EST				
+* Experiment Type = Comparative Cт (ΔΔCт) 				
+* Instrument Name = Molecular_Profiling				
+* Instrument Serial Number = 285880688				
+* Instrument Type = QuantStudio 12K Flex				
+* Passive Reference = ROX				
+* Quantification Cycle Method = Ct				
+* Signal Smoothing On = true				
+* Stage/ Cycle where Analysis is performed = Stage 2, Step 2				
+* User Name = KMJY				
+				
+[Results]				
+Sample Name	Target Name	RQ	RQ Min	RQ Max
+HHT-2294	Ex1.Hs03023279_cn	1.77	1.463	2.142
+HHT-2294	RNASE P			
+HHT-2294	Ex2.Hs02944145_cn	1.201	1.107	1.303
+HHT-2294	Ex3	1.337	1.246	1.435
+C01	Ex1.Hs03023279_cn	1.492	1.326	1.678
+C01	RNASE P			
+C01	Ex2.Hs02944145_cn	1.113	1.077	1.149
+C01	Ex3	0.916	0.85	0.988
+HHT-2294	Ex7.Hs00412834_cn	1.066	0.997	1.141
+HHT-2294	Ex8.Hs02042994_cn	1.022	0.96	1.088
+HHT-2294	Ex9.Hs00704333_cn	1.078	1.043	1.115
+C01	Ex7.Hs00412834_cn	0.917	0.861	0.976
+C01	Ex8.Hs02042994_cn	0.934	0.878	0.994
+C01	Ex9.Hs00704333_cn	1.038	0.939	1.148
+HHT-2294	Ex12.Hs01434720_cn	1.172	1.099	1.251
+HHT-2294	Ex13	1.077	1.017	1.142
+HHT-2294	Ex14.Hs02376914_cn	1.058	1.017	1.099
+C01	Ex12.Hs01434720_cn	1.008	0.961	1.056
+C01	Ex13	0.852	0.8	0.907
+C01	Ex14.Hs02376914_cn	0.979	0.934	1.027
+HHT-2294	Ex17.Hs02305143_cn	1.049	0.993	1.107
+HHT-2294	Ex18.Hs04402282_cn	1.038	1.003	1.073
+HHT-2294	Ex19.Hs00951916_cn	0.979	0.898	1.067
+C01	Ex17.Hs02305143_cn	0.903	0.88	0.926
+C01	Ex18.Hs04402282_cn	0.97	0.897	1.049
+C01	Ex19.Hs00951916_cn	0.882	0.813	0.956
+HHT-2294	Ex22.Hs02403607_cn	1.046	0.925	1.182
+HHT-2294	Ex23.Hs02303148_cn	1.002	0.938	1.071
+HHT-2294	Ex24.Hs03766117_cn	1.006	0.915	1.105
+C01	Ex22.Hs02403607_cn	0.918	0.866	0.973
+C01	Ex23.Hs02303148_cn	0.922	0.841	1.011
+C01	Ex24.Hs03766117_cn	1.004	0.922	1.094
+HHT-2294	Ex27.Hs01453470_cn	1.003	0.923	1.089
+HHT-2294	Ex28.Hs00310391_cn	1.137	1.061	1.219
+HHT-2294	Ex29.Hs01720066_cn	1.069	1.018	1.122
+C01	Ex27.Hs01453470_cn	0.896	0.804	1
+C01	Ex28.Hs00310391_cn	0.993	0.95	1.038
+C01	Ex29.Hs01720066_cn	1.006	0.935	1.082
+HHT-2294	Ex32.Hs01193830_cn	1.315	1.204	1.437
+HHT-2294	Ex33	1.033	1.004	1.063
+HHT-2294	Ex34	1.028	0.954	1.109
+C01	Ex32.Hs01193830_cn	1.143	1.059	1.235
+C01	Ex33	0.964	0.901	1.032
+C01	Ex34	0.895	0.863	0.929
+HHT-2294	Ex37	1.141	1.073	1.213
+HHT-2294	Ex38.Hs01278774_cn	1.02	0.887	1.172
+HHT-2294	Ex39.Hs01819340_cn	0.948	0.888	1.012
+C01	Ex37	1.023	1	1.045
+C01	Ex38.Hs01278774_cn	0.987	0.918	1.062
+C01	Ex39.Hs01819340_cn	0.986	0.888	1.094
+	Ex1.Hs03023279_cn			
+	RNASE P			
+	Ex2.Hs02944145_cn			
+	Ex3			
+C30	Ex1.Hs03023279_cn	1	0.932	1.073
+C30	RNASE P			
+C30	Ex2.Hs02944145_cn	1	0.93	1.075
+C30	Ex3	1	0.979	1.021
+	Ex7.Hs00412834_cn			
+	Ex8.Hs02042994_cn			
+	Ex9.Hs00704333_cn			
+C30	Ex7.Hs00412834_cn	1	0.904	1.106
+C30	Ex8.Hs02042994_cn	1	0.974	1.027
+C30	Ex9.Hs00704333_cn	1	0.915	1.093
+	Ex12.Hs01434720_cn			
+	Ex13			
+	Ex14.Hs02376914_cn			
+C30	Ex12.Hs01434720_cn	1	0.977	1.024
+C30	Ex13	1	0.95	1.053
+C30	Ex14.Hs02376914_cn	1	0.961	1.041
+	Ex17.Hs02305143_cn			
+	Ex18.Hs04402282_cn			
+	Ex19.Hs00951916_cn			
+C30	Ex17.Hs02305143_cn	1	0.962	1.039
+C30	Ex18.Hs04402282_cn	1	0.95	1.053
+C30	Ex19.Hs00951916_cn	1	0.966	1.035
+	Ex22.Hs02403607_cn			
+	Ex23.Hs02303148_cn			
+	Ex24.Hs03766117_cn			
+C30	Ex22.Hs02403607_cn	1	0.931	1.074
+C30	Ex23.Hs02303148_cn	1	0.943	1.06
+C30	Ex24.Hs03766117_cn	1	0.943	1.061
+	Ex27.Hs01453470_cn			
+	Ex28.Hs00310391_cn			
+	Ex29.Hs01720066_cn			
+C30	Ex27.Hs01453470_cn	1	0.937	1.067
+C30	Ex28.Hs00310391_cn	1	0.923	1.084
+C30	Ex29.Hs01720066_cn	1	0.959	1.043
+	Ex32.Hs01193830_cn			
+	Ex33			
+	Ex34			
+C30	Ex32.Hs01193830_cn	1	0.948	1.055
+C30	Ex33	1	0.946	1.057
+C30	Ex34	1	0.912	1.096
+	Ex37			
+	Ex38.Hs01278774_cn			
+	Ex39.Hs01819340_cn			
+C30	Ex37	1	0.974	1.027
+C30	Ex38.Hs01278774_cn	1	0.954	1.048
+C30	Ex39.Hs01819340_cn	1	0.982	1.018
+Analysis Type = Multiplex				
+Endogenous Control = RNASE P				
+RQ Min/Max Confidence Level = 95.0				
+Reference Sample = C30				
