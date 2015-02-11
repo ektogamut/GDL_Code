@@ -16,19 +16,34 @@ def remove_dup_and_blank(reader):
             # print reader.line_num
             if sample not in data_dict and rq:
                 data_dict[sample] = {gene: [rq, rmin, rmax]}
-            elif sample in data_dict and gene not in data_dict[sample]:
+            elif sample in data_dict and gene not in data_dict[sample] and rq:
                 data_dict[sample][gene] = [rq, rmin, rmax]
     # for item, value in data_dict.items(): print item, value
     return data_dict
 
-tab_csv = open("/Users/regrant/GDL Code/Source Files/HI DD/ALL 384 well data HHT-2994 b.csv", 'rb')
+def write_data_dict(data_dict):
+    """
+
+    :param data_dict:
+    :return:
+    """
+    t_output_csv = open("test_output.csv", 'wb')
+    writer = csv.writer(t_output_csv, dialect='excel-tab')
+    for sample in data_dict:
+        for gene in data_dict[sample]:
+            print sample, gene, data_dict[sample][gene]
+            writer.writerow([sample, gene, data_dict[sample][gene][0], data_dict[sample][gene][1], data_dict[sample][gene][2]])
+
+    t_output_csv.close()
+
+tab_csv = open("/Users/regrant/GDL Code/Source Files/HI DD/ALL 384 well data HHT-2994 c.csv", 'rb')
 t_reader = csv.reader(tab_csv, dialect='excel-tab')
 
-t_output_csv = open("test_output.csv", 'wb')
-writer = csv.writer(t_output_csv, dialect='excel-tab')
+# t_output_csv = open("test_output.csv", 'wb')
+# writer = csv.writer(t_output_csv, dialect='excel-tab')
 x = remove_dup_and_blank(t_reader)
+write_data_dict(x)
 
 
 
 tab_csv.close()
-t_output_csv.close()
