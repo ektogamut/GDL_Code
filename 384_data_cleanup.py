@@ -1,6 +1,9 @@
 __author__ = 'regrant'
 
 import csv
+from Tkinter import Tk
+from tkFileDialog import askopenfilename, asksaveasfilename
+
 
 
 # def remove_dup_and_blank(reader):
@@ -26,42 +29,28 @@ def remove_dup_and_blank(reader):
     """
     Cleans data given by genescan 384 well to format useful to GDL.
     :param writer: a csv module write object
-    :return: a dictionary {patient1: {gene1: [RQ, RQ_Min, RQ_Max], gene2: [RQ, RQ_Min, RQ_Max]},
-                           patient2: {gene1: [RQ, RQ_Min, RQ_Max], gene2: [RQ, RQ_Min, RQ_Max]}}
+    :return: a set [(patient1, gene1, RQ, RQ_Min, RQ_Max),
+                    (patient1, gene2, RQ, RQ_Min, RQ_Max),
+                    (patient2, gene1, RQ, RQ_Min, RQ_Max)]
+
     """
     data_set = set([])
     for sample, gene, rq, rmin, rmax in reader:
         if reader.line_num > 38:
             if rq:
                 data_set.add((sample, gene, rq, rmin, rmax))
-
-    # for item, value in data_dict.items(): print item, value
     return data_set
-
-
-def write_data_dict(data_dict):
-    """
-
-    :param data_dict:
-    :return:
-    """
-    t_output_csv = open("test_output.csv", 'wb')
-    writer = csv.writer(t_output_csv, dialect='excel-tab')
-    for sample in data_dict:
-        for gene in data_dict[sample]:
-            print sample, gene, data_dict[sample][gene]
-            writer.writerow([sample, gene, data_dict[sample][gene][0], data_dict[sample][gene][1], data_dict[sample][gene][2]])
-
-    t_output_csv.close()
 
 
 def write_data(data_set):
     """
-
+    Takes data set from remove dup and blank and writes to a new csv file.
+    Also flags any samples where the rmax/rmin are +- 0.2 away from RQ.
     :param data_set:
-    :return:
+    :return: nothing
     """
-    t_output_csv = open("test_output.csv", 'wb')
+    filename = asksaveasfilename(defaultextension='csv')
+    t_output_csv = open(filename, 'wb')
     writer = csv.writer(t_output_csv, dialect='excel-tab')
     outlier_set = set([])
     for row in data_set:
@@ -80,15 +69,19 @@ def write_data(data_set):
     t_output_csv.close()
 
 
-tab_csv = open("/Users/regrant/GDL Code/Source Files/HI DD/ALL 384 well data HHT-2994 c.csv", 'rb')
+Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
+
+# tab_csv = open("/Users/regrant/GDL Code/Source Files/HI DD/ALL 384 well data HHT-2994 c.csv", 'rb')
+tab_csv = open(filename)
 t_reader = csv.reader(tab_csv, dialect='excel-tab')
 
 # t_output_csv = open("test_output.csv", 'wb')
 # writer = csv.writer(t_output_csv, dialect='excel-tab')
 x = remove_dup_and_blank(t_reader)
 
-print len(x)
-for i in x: print i
+# print len(x)
+# for i in x: print i
 write_data(x)
 
 
