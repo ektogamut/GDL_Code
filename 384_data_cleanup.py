@@ -1,17 +1,23 @@
-__author__ = 'regrant'
+"""
+This is a small script designed to cleanup data fro 284 well genescan assays,
+which gives repetitive data. Additionally, this script will flag
+outliers.
+"""
 
 import csv
 from Tkinter import Tk
 from tkFileDialog import askopenfilename, asksaveasfilename
+import xlrd, xlwt
 
 
 def remove_dup_and_blank(reader):
     """
     Cleans data given by genescan 384 well to format useful to GDL.
+    Takes a reader object from the csv module as input
     :param writer: a csv module write object
     :return: a set [(patient1, gene1, RQ, RQ_Min, RQ_Max),
                     (patient1, gene2, RQ, RQ_Min, RQ_Max),
-                    (patient2, gene1, RQ, RQ_Min, RQ_Max)]
+                    (patient2, gene1, RQ, RQ_Min, RQ_Max)...]
 
     """
     data_set = set([])
@@ -64,4 +70,8 @@ def clean_data():
     tab_csv.close()
     return
 
-clean_data()
+
+
+get_data()
+
+# clean_data()
