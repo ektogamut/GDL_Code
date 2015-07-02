@@ -42,9 +42,10 @@ def write_data(data_set):
 
 def average_cts(sample_dict):
     """
-
-    :param sample_dict:
-    :return:
+    Takes a sample dict from get_data() and returns a dict containing
+    average cts, the stdev, and the number of replicates used to calculate
+    :param sample_dict:{sample_name:{target1: ct1, target2: ct2,...}}
+    :return: ct_dict: {sample_name:{target1: {ave_ct: ##, std: ##, num_reps:##}...}}
     """
     ct_dict = dict(sample_dict)
 
@@ -53,13 +54,27 @@ def average_cts(sample_dict):
             # print cts
             ct_dict[sample][target] = {}
             ct_dict[sample][target]["ave_ct"] = mean(cts)
+            ct_dict[sample][target]["num_reps"] = len(cts)
             ct_dict[sample][target]["std"] = std(cts)
 
-    for item, value in ct_dict.items(): print item, value
+    # for item, value in ct_dict.items(): print item, value
     return ct_dict
 
 
+def delta_cts(ct_dict):
+    """
 
+    :param ct_dict:
+    :return:ct_dict: {sample_name:{target1: {ave_ct: ##, std: ##, num_reps:##}...}}
+    """
+    delta_dict = dict(ct_dict)
+    for sample in ct_dict:
+        delta_dict[sample] = {}
+        # print ct_dict[sample]
+        delta_dict[sample]["delta ICR1"] = ct_dict[sample][u"ICR1_CBS2 M"]["ave_ct"] - ct_dict[sample][u"ICR1_CBS2 UM"]["ave_ct"]
+        delta_dict[sample]["delta ICR2"] = ct_dict[sample][u"ICR2 M"]["ave_ct"] - ct_dict[sample][u"ICR2 UM"]["ave_ct"]
+    for x, y in ct_dict.items(): print x, y
+    for item, values in delta_dict.items(): print item, values
 
 
 def get_data():
@@ -71,16 +86,23 @@ def get_data():
     """
     # Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
     # filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-    filename = '/Users/regrant/GDL Code/BWR_METHYL_292_06_12_15_RG.xls'
+    filename = '/Users/regrant/GDL Code/BWR_METHYL_295_06_17_15_FULL_RG.xls'
     workbook = xlrd.open_workbook(filename)
     results = workbook.sheet_by_name("Results")
     sample_dict = dict()
     count = 0
+    header0, header1, header2, header3 = results.row_values(7)[0],\
+                                         results.row_values(7)[1],\
+                                         results.row_values(7)[2],\
+                                         results.row_values(7)[3]
+    assert header0 == u'Well', "First Header row must be 'Well'"
+    assert header1 == u'Sample Name', "Second header row must be 'Sample Name'"
+    assert header2 == u'Target Name', "Third header row must be 'Target Name'"
+    assert header3 == u'C\u0442', "Fourth header row must be u'C\u0442'"
+
     for rowx in range(results.nrows):
-        # print results.row(rowx)
-        if type(results.row_values(rowx)[2]) == float:
-            count += 1
-            sample, target, ct = results.row_values(rowx)
+        if type(results.row_values(rowx)[3]) == float:
+            well, sample, target, ct = results.row_values(rowx)[0:4]
 
             if sample not in sample_dict:
                 sample_dict[sample] = {}
@@ -88,13 +110,14 @@ def get_data():
                 sample_dict[sample][target] = [ct]
             else:
                 sample_dict[sample][target].append(ct)
-                if len(sample_dict[sample][target]) > 3:
-                    print 'SHIT'
 
-    # for x, y in sample_dict.items(): print x, y
+
+    for x, y in sample_dict.items(): print x, y
     return sample_dict
 
 if __name__ == '__main__':
-    average_cts(get_data())
-
+    avs = average_cts(get_data())
+    delta_cts(avs)
 # clean_data()
+
+
