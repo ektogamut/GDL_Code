@@ -1,6 +1,6 @@
 """
-This is a small script designed to cleanup data fro 284 well genescan assays,
-which gives repetitive data. Additionally, this script will flag
+This is a small script designed to cleanup data from OneStep real time PCR
+assays, which gives repetitive data. Additionally, this script will flag
 outliers.
 """
 
