@@ -6,7 +6,7 @@ outliers.
 
 import csv
 from Tkinter import Tk
-from tkFileDialog import askopenfilename, asksaveasfilename
+from tkFileDialog import askopenfilename, asksaveasfilename, askopenfilenames
 import xlrd, xlwt
 from numpy import mean, std
 
@@ -115,9 +115,51 @@ def get_data():
     for x, y in sample_dict.items(): print x, y
     return sample_dict
 
+def grab_data():
+    """
+    This function allows a user to select a group of xls files and combine them into a single sheet.
+    The user can then choose a destination directory and filename for the compiled data.
+
+    :return: a list containing the rows from each file
+    """
+    Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+    filenames = askopenfilenames(initialdir="/Users/regrant/GDL Code") # show an "Open" dialog box and return the path to the selected file
+    # filenames = ["/Users/regrant/GDL Code/BWR_METHYL_292_06_12_15_RG.xls", "/Users/regrant/GDL Code/BWR_METHYL_295_06_17_15_FULL_RG.xls"]
+
+    compiled_list = []
+    for file in filenames:
+        print file,
+        workbook = xlrd.open_workbook(file)
+        results = workbook.sheet_by_name("Results")
+        for rowx in range(results.nrows):
+            compiled_list.append(results.row_values(rowx))
+
+    # for row, item in enumerate(compiled_list): print item
+    return compiled_list
+
+
+def write_all_data(compiled_list):
+
+    save_name = asksaveasfilename()
+    # save_name = "/Users/regrant/GDL Code/asdf"
+    comp_wb = xlwt.Workbook()
+    comp_ws = comp_wb.add_sheet('Final Results')
+    row_count = 0
+    for data in compiled_list:
+        # print data
+        for col, value in enumerate(data):
+            # print col, value
+            comp_ws.write(row_count, col, value)
+        row_count += 1
+    comp_wb.save(save_name)
+    return
+
+
+
+
+
+
 if __name__ == '__main__':
-    avs = average_cts(get_data())
-    delta_cts(avs)
-# clean_data()
+    write_all_data(grab_data())
 
 
