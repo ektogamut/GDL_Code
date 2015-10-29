@@ -11,8 +11,6 @@ import xlrd, xlwt
 from numpy import mean, std
 
 
-
-
 def write_data(data_set):
     """
     Takes data set from remove dup and blank and writes to a new csv file.
@@ -126,6 +124,7 @@ def grab_data():
     filenames = askopenfilenames(initialdir="/Users/regrant/GDL Code") # show an "Open" dialog box and return the path to the selected file
     compiled_list = []
     for file in filenames:
+        assert file.endswith('.xls'), "Filetype must be .xls"
         workbook = xlrd.open_workbook(file)
         results = workbook.sheet_by_index(0)
         for rowx in range(results.nrows):
@@ -136,7 +135,7 @@ def grab_data():
 def write_all_data(compiled_list):
     """
     The function will prompt the user to choose a destination directory and filename for the compiled data.
-    :param compiled_list: A list of lists
+    :param A list of lists
     :return: an excel file with each sublist written to a row
     """
     save_name = asksaveasfilename()
